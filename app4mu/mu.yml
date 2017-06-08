@@ -1,0 +1,12 @@
+environments:
+- name: dev
+- name: production
+service:
+  name: app4mu
+  port: 80
+  pathPatterns:
+  - /*
+  pipeline:
+    source:
+      provider: GitHub
+      repo: indybeck/laterre
