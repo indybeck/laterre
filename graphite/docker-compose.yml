@@ -1,0 +1,15 @@
+version: '2'
+
+volumes:
+  graphite_data: {}
+
+services:
+  graphite:
+    image: nickstenning/graphite
+    ports:
+      - "80:80"
+      - "2003:2003"
+      - "2004:2004"
+      - "7002:7002"
+    volumes:
+      - graphite_data:/var/lib/graphite/storage/whisper

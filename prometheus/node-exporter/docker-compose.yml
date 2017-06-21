@@ -1,0 +1,15 @@
+version: '2'
+services:
+  node-exporter:
+    image: prom/node-exporter
+    restart: on-failure
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc
+      - /sys:/host/sys
+      - /:/rootfs
+    command:
+      - '-collector.procfs=/host/proc'
+      - '-collector.sysfs=/host/sysfs'
+      - '-collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"' 
