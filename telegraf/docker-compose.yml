@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  telegraf:
+    image: telegraf
+    network_mode: "host"
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
