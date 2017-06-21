@@ -1,0 +1,11 @@
+version: '2'
+services:
+  linkerd:
+    image: buoyantio/linkerd:0.9.0
+    command: /config.yaml
+    ports:
+        - "8080:8080"
+        - "9990:9990"
+    #network_mode: "host"
+    volumes:
+      - "./config.yml:/config.yaml"

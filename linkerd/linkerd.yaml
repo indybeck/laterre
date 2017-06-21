@@ -1,0 +1,47 @@
+admin:
+  port: 9990
+
+telemetry:
+- kind: io.l5d.prometheus
+
+routers:
+- protocol: http
+  label: outgoing
+  #streamingEnabled: false
+  #dtab: |
+  #  /svc=>/#/io.l5d.marathon;
+  identifier:
+    kind: io.l5d.path
+    consume: false
+    segments: 2
+  interpreter:
+    kind: io.l5d.namerd
+    experimental: true
+    dst: /$/inet/namerd.q.local/4100
+    namespace: sessionm
+    transformers:
+    - kind: io.l5d.port
+      port: 4141
+  servers:
+  - port: 4140
+    ip: 0.0.0.0
+- protocol: http
+  label: incoming
+  #streamingEnabled: false
+  #dtab: |
+  #  /svc=>/#/io.l5d.marathon;
+  identifier:
+    kind: io.l5d.path
+    consume: true
+    segments: 2
+  interpreter:
+    kind: io.l5d.namerd
+    experimental: true
+    dst: /$/inet/namerd.q.local/4100
+    namespace: sessionm
+    transformers:
+    - kind: io.l5d.localhost
+  servers:
+  - port: 4141
+    ip: 0.0.0.0
+  client:
