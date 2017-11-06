@@ -1,0 +1,10 @@
+version: '2.0'
+services:
+  pghero:
+    image: ankane/pghero
+    ports:
+      - "8080:8080"
+    environment:
+      - PGUSER=swoop
+      - PGPASSWORD=sva]bnNio8
+      - DATABASE_URL=postgres://prod-pg-m.swoop.com:5432/swoop_development

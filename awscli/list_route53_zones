@@ -1,0 +1,1 @@
+aws route53 list-hosted-zones |jq '.HostedZones | .[] | {id: .Id, name: .Name }'
