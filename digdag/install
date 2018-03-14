@@ -1,0 +1,1 @@
+curl -o /usr/local/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest"

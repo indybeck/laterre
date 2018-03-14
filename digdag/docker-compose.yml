@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  digdag:
+    image: indybeck/digdag
+    ports:
+      - "65432:65432"
+    command: "java -jar /usr/local/bin/digdag server -m -b 0.0.0.0"
