@@ -1,0 +1,2 @@
+dig +nssearch $1
+dig @8.8.8.8  +nssearch $1
