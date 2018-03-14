@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  exhibitor:
+    image: mbabineau/zookeeper-exhibitor
+    ports:
+      - "2181"
+      - "2888"
+      - "3888"
+      - "8181"
+    environment:
+      - "S3_BUCKET=spx-zookeeper"
+      - "S3_PREFIX=dev"
+      - "AWS_ACCESS_KEY_ID="
+      - "AWS_SECRET_ACCESS_KEY="
+      - "AWS_REGION=us-east-1"
